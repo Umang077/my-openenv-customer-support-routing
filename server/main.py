@@ -75,3 +75,7 @@ def step(request: StepRequest):
 def state():
     """Return current episode state without advancing it."""
     return _env.state()
+
+@app.get("/")
+def home():
+    return {"status": "Customer Support Routing API is running"}
