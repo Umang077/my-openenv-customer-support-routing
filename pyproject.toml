@@ -5,11 +5,16 @@ description = "OpenEnv-compatible customer support routing environment"
 authors = [
   { name="Umang Gaur" }
 ]
+
 dependencies = [
   "fastapi",
   "uvicorn",
-  "pydantic"
+  "pydantic",
+  "openenv-core>=0.2.0"
 ]
+
+[project.scripts]
+server = "server.app:app"
 
 [build-system]
 requires = ["setuptools>=61.0"]
