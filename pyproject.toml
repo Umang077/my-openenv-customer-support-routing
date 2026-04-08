@@ -1,0 +1,16 @@
+[project]
+name = "customer-support-routing"
+version = "0.1.0"
+description = "OpenEnv-compatible customer support routing environment"
+authors = [
+  { name="Umang Gaur" }
+]
+dependencies = [
+  "fastapi",
+  "uvicorn",
+  "pydantic"
+]
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
