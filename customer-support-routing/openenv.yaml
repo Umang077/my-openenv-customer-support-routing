@@ -1,0 +1,79 @@
+name: customer-support-routing
+version: "1.0.0"
+description: >
+  An OpenEnv environment where an AI agent routes customer support tickets
+  to the correct team and assigns priority levels. Simulates real tier-1
+  support triage across billing, technical, returns, security, and general teams.
+author: "Umang Gaur"
+tags:
+  - openenv
+  - customer-support
+  - routing
+  - nlp
+  - real-world
+
+tasks:
+  - name: simple_routing
+    difficulty: easy
+    description: "Route 5 clearly-worded tickets to the correct team. Priority is not evaluated."
+    max_steps: 5
+    score_range: [0.0, 1.0]
+  - name: priority_routing
+    difficulty: medium
+    description: "Route 6 tickets to the correct team AND assign correct priority (low/medium/high)."
+    max_steps: 6
+    score_range: [0.0, 1.0]
+  - name: batch_routing
+    difficulty: hard
+    description: "Route 8 ambiguous tickets where subject lines may be deliberately misleading."
+    max_steps: 8
+    score_range: [0.0, 1.0]
+
+action_space:
+  type: object
+  properties:
+    team:
+      type: string
+      enum: [billing, technical, returns, general_inquiry, security]
+      description: "The support team to route this ticket to"
+    priority:
+      type: string
+      enum: [low, medium, high]
+      description: "Urgency level of this ticket"
+      default: medium
+    notes:
+      type: string
+      description: "Optional routing notes"
+      required: false
+
+observation_space:
+  type: object
+  properties:
+    ticket_id:
+      type: string
+    ticket_subject:
+      type: string
+    ticket_text:
+      type: string
+    available_teams:
+      type: array
+      items: {type: string}
+    available_priorities:
+      type: array
+      items: {type: string}
+    tickets_completed:
+      type: integer
+    tickets_total:
+      type: integer
+    current_score:
+      type: number
+    task_name:
+      type: string
+    task_difficulty:
+      type: string
+
+endpoints:
+  reset: POST /reset
+  step: POST /step
+  state: GET /state
+  health: GET /health
