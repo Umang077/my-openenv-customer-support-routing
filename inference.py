@@ -30,7 +30,7 @@ from cs_routing_env.client import CSRoutingEnv, CSRoutingAction
 
 from dotenv import load_dotenv
 load_dotenv()
-# ── Configuration ─────────────────────────────────────────────────────────────
+# ── Configuration ────────────────────────────────────────────────────────────
 
 API_BASE_URL = os.getenv("API_BASE_URL","https://router.huggingface.co/v1") 
 API_KEY      = os.getenv("HF_TOKEN") 
