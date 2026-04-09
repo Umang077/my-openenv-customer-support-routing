@@ -1,3 +1,13 @@
+---
+title: Customer Support Routing
+emoji: 🎫
+colorFrom: blue
+colorTo: purple
+sdk: docker
+pinned: false
+tags:
+  - openenv
+---
 
 # Customer Support Routing: OpenEnv Environment
 
