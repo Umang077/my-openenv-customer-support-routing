@@ -232,12 +232,12 @@ async def run_task(env: CSRoutingEnv, client: OpenAI, task_name: str) -> None:
 
         # Final score = mean per-ticket reward (already in [0, 1])
         score   = sum(rewards) / max(len(rewards), 1)
-        score   = min(max(score, 0.0), 1.0)
+        score   = min(max(score, 0.001), 0.999)
         success = score >= SUCCESS_THRESHOLD
 
     except Exception as exc:
         print(f"[DEBUG] Task {task_name} error: {exc}", flush=True)
-        score   = 0.0
+        score   = 0.001
         success = False
     finally:
         log_end(success=success, steps=steps_taken, score=score, rewards=rewards)
