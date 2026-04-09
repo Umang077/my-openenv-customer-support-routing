@@ -1,15 +1,5 @@
----
-title: Customer Support Routing
-emoji: 🎫
-colorFrom: blue
-colorTo: purple
-sdk: docker
-pinned: false
-tags:
-  - openenv
----
 
-# Customer Support Routing — OpenEnv Environment
+# Customer Support Routing: OpenEnv Environment
 
 An OpenEnv environment where an AI agent triages customer support tickets by
 routing each one to the correct team and assigning an appropriate priority level.
